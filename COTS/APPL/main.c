@@ -8,6 +8,12 @@ float OnTime = 1	; // LED On Time in Sec
 float OffTime = 1 ;// LED Off Time in Sec
 
 
+void handle_systick_isr(){
+
+Blinking_LED(OnTime,OffTime);
+
+}
+
 int main(void){
 	
 GPIOConfig_t MyPort;
@@ -19,9 +25,12 @@ GPIOConfig_t MyPort;
 	
 	initPort(&MyPort);
 	
+	register_systick_CBFun(&handle_systick_isr);
+	
 	initSystick(OffTime);	
 	
 	while (1){
+		
 	// Waiting for interrupt
 		
 	}
@@ -29,6 +38,4 @@ GPIOConfig_t MyPort;
   return 0;
 }
 
-void SysTick_Handler(){
-		Blinking_LED(OnTime,OffTime);
-}
+

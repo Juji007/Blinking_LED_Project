@@ -1,7 +1,23 @@
 #include "systick.h"
-#include "bitm.h"
-#include "hw_gpio.h"
-#include "gpio.h"
+
+
+cb_ptr callBack_ptr = NULL ;
+
+
+void register_systick_CBFun(cb_ptr ptr){
+
+if(ptr != NULL){
+
+	callBack_ptr = ptr;
+}
+}
+void SysTick_Handler(){
+	
+	if(callBack_ptr != NULL){
+	
+	callBack_ptr();
+	}
+}
 
 
 
