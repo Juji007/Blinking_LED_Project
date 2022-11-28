@@ -1,7 +1,7 @@
 #include "gpio.h"
 #include "system.h"
 
-gpioError_t setPortDir ( uint32 addr ,uint8 val){
+gpioError_t SetPortDir ( uint32 addr ,uint8 val){
 gpioError_t state = WORKING;
 	if(addr == GPIO_PORTA_BASE ||addr == GPIO_PORTB_BASE ||addr == GPIO_PORTC_BASE ||addr == GPIO_PORTD_BASE ||addr == GPIO_PORTE_BASE ||addr == GPIO_PORTF_BASE ){
 		
@@ -85,5 +85,4 @@ Set_reg32_Pin((config->base)+GPIO_OPEN_DRAIN_SEL_OFFSET,config->Pin);
 Set_reg32_Pin((config->base)+GPIO_DIGITAL_EN_OFFSET,config->Pin); // Digital Enable
 
 }
-
 

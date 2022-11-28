@@ -4,14 +4,15 @@
 #include "bitm.h"
 #include "stdio.h"
 
-#define Systick_Clock 16000000
+#define Systick_Clock 4000000
 
 typedef void(*cb_ptr)(void);  // pointer to a function type
 
 void register_systick_CBFun(cb_ptr ptr);
 
-void Systick_Disable();
+
 void initSystick(float load);
 void Systick_Enable();
+void Systick_Disable();
 
 #endif //SYSTICK_H

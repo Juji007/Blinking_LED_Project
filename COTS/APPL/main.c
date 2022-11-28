@@ -3,15 +3,15 @@
 #include "gpio.h"
 #include "systick.h"
 #include "led.h"
+#include "intCtrl.h"
 
-float OnTime = 1	; // LED On Time in Sec
+float OnTime = 4	; // LED On Time in Sec
 float OffTime = 1 ;// LED Off Time in Sec
 
 
 void handle_systick_isr(){
-
+	
 Blinking_LED(OnTime,OffTime);
-
 }
 
 int main(void){
@@ -25,6 +25,9 @@ GPIOConfig_t MyPort;
 	
 	initPort(&MyPort);
 	
+	Enable_IR(busFalult,1); // Enable bus fault
+	Enable_IR(usageFault,0);  // Enable usage fault
+	
 	register_systick_CBFun(&handle_systick_isr);
 	
 	initSystick(OffTime);	
@@ -32,9 +35,7 @@ GPIOConfig_t MyPort;
 	while (1){
 		
 	// Waiting for interrupt
-		
 	}
-	
   return 0;
 }
 

@@ -42,7 +42,7 @@ typedef struct GPIOConfig{
 }GPIOConfig_t;
 
 
-gpioError_t setPortDir ( uint32 addr ,uint8 val);
+gpioError_t SetPortDir ( uint32 addr ,uint8 val);
 gpioError_t WritePort ( uint32 addr ,uint8 val);
 gpioError_t ReadPort ( uint32 addr ,uint8 *val);
 
