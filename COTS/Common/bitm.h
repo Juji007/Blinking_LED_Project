@@ -17,5 +17,4 @@
 #define Read_reg32_Pin(addr , pin ) ((*((volatile uint32 *)(addr))&(1<<pin))>>pin)
 
 
-
 #endif

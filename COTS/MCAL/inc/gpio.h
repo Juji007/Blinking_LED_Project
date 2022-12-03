@@ -41,7 +41,8 @@ typedef struct GPIOConfig{
 	
 }GPIOConfig_t;
 
-
+void GPIO_CLEAR_PIN(uint32 addr , uint8 pin);
+uint32 GPIO_READ_PIN(uint32 addr , uint8 pin);
 gpioError_t SetPortDir ( uint32 addr ,uint8 val);
 gpioError_t WritePort ( uint32 addr ,uint8 val);
 gpioError_t ReadPort ( uint32 addr ,uint8 *val);

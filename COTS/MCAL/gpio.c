@@ -35,6 +35,16 @@ gpioError_t state = WORKING;
 return state;
 
 }
+uint32 GPIO_READ_PIN(uint32 addr , uint8 pin){
+	
+return ((*((volatile uint32 *)(addr+GPIO_DATA_OFFSET))&(1<<pin))>>pin);
+
+}
+void GPIO_CLEAR_PIN(uint32 addr , uint8 pin){
+	
+*((volatile uint32 *)(addr+GPIO_DATA_OFFSET)) &= ~(1<<pin) ;
+
+}
 void initPort(GPIOConfig_t *config){
 	//Unlock and Commit
 Write_reg32((config->base+GPIO_LOCK_OFFSET),0x4C4F434B);
